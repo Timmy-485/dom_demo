@@ -1,18 +1,19 @@
+//get modal and backdrop elements
 let modal = document.querySelector("#add-modal")
 let btns = document.getElementsByTagName("button")
 let addMovieBtn = btns[4]
 let backdrop = document.getElementById("backdrop")
 
+//make backdrop and modal visible on click
 addMovieBtn.addEventListener("click", showModal = () =>{
     modal.classList.add("visible")
     backdrop.classList.toggle("visible")
 })
 
 
-let cancelBtn = document.querySelector(".btn")
-let backdropBody = document.getElementById("backdrop");
-console.log(cancelBtn)
 
+
+//clear inputs
 let clearInputs = () => {
     let inputs = document.getElementsByTagName("input")
     for (x of inputs){
@@ -20,17 +21,18 @@ let clearInputs = () => {
     }
 }
 
+//remove modal and backdrop on cancel and click 
+let cancelBtn = document.querySelector(".btn")
+let backdropBody = document.getElementById("backdrop");
 let cancel = () => {
     clearInputs()
     modal.classList.remove("visible")
-    backdrop.classList.remove("visible")
-    
+    backdrop.classList.remove("visible")   
 }
-
 cancelBtn.addEventListener("click", cancel);
-
 backdropBody.addEventListener("click", cancel);
 
+//get information inputted into input fields
 const addMovie = document.querySelector(".btn--success")
 let movieDetails = []
 addMovie.addEventListener("click", getDeats = () => {
@@ -51,6 +53,7 @@ addMovie.addEventListener("click", getDeats = () => {
         }
         movieDetails.push(deatsObj);
         console.log(movieDetails)
+        //close modal and clear input contents after operation
         cancel()
     }
 })
